@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import techkillaLogo from "./assets/techkilla-logo.jpg";
 
 const App = () => {
   const canvasRef = useRef(null);
@@ -9,8 +10,8 @@ const App = () => {
   let cellWidth = 0;
   let cellHeight = 0;
 
-  const mainImageSrc =
-    "https://plus.unsplash.com/premium_photo-1664474619075-644dd191935f?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+  // const mainImageSrc =
+  //   "https://plus.unsplash.com/premium_photo-1664474619075-644dd191935f?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
 
   useEffect(() => {
     const mainImage = mainImageRef.current;
@@ -157,7 +158,7 @@ const App = () => {
 
           // ✅ 2. Draw the uploaded small image on top
           ctx.save();
-          ctx.globalAlpha = 0.5; // Optional: Slight transparency
+          ctx.globalAlpha = 0.6; // Optional: Slight transparency
           ctx.drawImage(
             img,
             targetCell.x * cellWidth,
@@ -170,6 +171,8 @@ const App = () => {
       };
       img.src = URL.createObjectURL(file);
     });
+
+    e.target.value = null;
   };
 
   return (
@@ -178,7 +181,7 @@ const App = () => {
 
       <img
         ref={mainImageRef}
-        src={mainImageSrc}
+        src={techkillaLogo}
         alt="Main Mosaic"
         style={{ display: "none" }}
         crossOrigin="anonymous"
